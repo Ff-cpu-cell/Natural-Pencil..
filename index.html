@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Pencil 🌱</title>
+  <style>
+    /* ====== ESTILOS GENERALES ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ====== HEADER Y MENÚ ====== */
+    header {
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+    nav a {
+      margin: 0 15px;
+      font-weight: 500;
+      color: #333;
+    }
+    nav a:hover {
+      color: #2e7d32;
+    }
+    .carrito {
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    /* ====== HERO SECTION ====== */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80") no-repeat center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+    .hero button {
+      padding: 12px 25px;
+      background: #2e7d32;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hero button:hover {
+      background: #1b5e20;
+    }
+
+    /* ====== SECCIONES ====== */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    section p, section ul {
+      text-align: justify;
+      margin-bottom: 20px;
+      color: #444;
+      font-size: 17px;
+    }
+
+    /* ====== TIENDA ====== */
+    .tienda {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .producto {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .producto button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      background: #2e7d32;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .producto button:hover {
+      background: #1b5e20;
+    }
+
+    /* ====== SIMULADOR ====== */
+    #simulador {
+      text-align: center;
+    }
+    canvas {
+      background: #e8f5e9;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* ====== IMÁGENES GRANDES ====== */
+    .imagen-grande {
+      display: block;
+      max-width: 1200px;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    footer p {
+      margin-bottom: 10px;
+    }
+    .redes a {
+      margin: 0 10px;
+      color: white;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <div class="logo">🌱 Natural Pencil</div>
+      <nav>
+        <a href="#somos">¿Qué Somos?</a>
+        <a href="#info">Información</a>
+        <a href="#cuidados">Cuidados</a>
+        <a href="#problema">Situación</a>
+        <a href="#ventas">Tienda</a>
+        <a href="#simulador">Simulación</a>
+        <a href="#folleto">Folleto</a>
+        <a href="#tarjetas">Tarjetas</a>
+        <a href="#infografia">Infografía</a>
+        <a href="#volante">Volante</a>
+        <a href="#catalogo">Catálogo</a>
+      </nav>
+      <div class="carrito">🛒 <span id="contador">0</span></div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Cambiando el mundo, una semilla a la vez</h1>
+    <p>Lápices que siembran futuro. Aprende, escribe y cultiva con Natural Pencil.</p>
+    <button onclick="document.getElementById('ventas').scrollIntoView({behavior:'smooth'})">
+      Ver productos
+    </button>
+  </section>
+
+  <!-- SECCIONES ORIGINALES -->
+  <section id="somos">
+    <h2>¿QUÉ SOMOS?</h2>
+    <p>Natural Pencil es un proyecto innovador que busca transformar la manera en la que usamos los materiales de escritura. Nuestro lápiz no solo cumple con la función tradicional de escribir, sino que también contiene en su interior una cápsula biodegradable con semillas, lista para ser sembrada al terminar de usar el lápiz. De esta forma, promovemos la sostenibilidad, la educación ambiental y la conexión con la naturaleza.</p>
+  </section>
+
+  <section id="info">
+    <h2>INFORMACIÓN</h2>
+    <p>Nuestros lápices ecológicos están fabricados con madera reciclada y materiales no tóxicos, garantizando un proceso amigable con el medio ambiente. Cada lápiz contiene una cápsula con semillas que pueden convertirse en una planta, contribuyendo así a reducir la deforestación y fomentar la reforestación urbana y rural.</p>
+  </section>
+
+  <section id="cuidados">
+    <h2>CUIDADOS PARA LA SEMILLA</h2>
+    <ul>
+      <li>Plantar el lápiz en una maceta con tierra fértil una vez que sea demasiado corto para escribir.</li>
+      <li>Regar constantemente, manteniendo la tierra húmeda pero no encharcada.</li>
+      <li>Colocar la maceta en un lugar con suficiente luz solar.</li>
+      <li>Tener paciencia: cada semilla tiene su propio tiempo de germinación.</li>
+    </ul>
+  </section>
+
+  <section id="problema">
+    <h2>SITUACIÓN PROBLEMA EN COLOMBIA</h2>
+    <p>Colombia, uno de los países con mayor biodiversidad en el mundo, enfrenta graves problemas de deforestación y contaminación. El uso excesivo de plásticos y productos desechables contribuye al deterioro ambiental. Con proyectos como Natural Pencil, buscamos generar conciencia ambiental, promover prácticas sostenibles y aportar a la protección de los ecosistemas.</p>
+  </section>
+
+  <!-- TIENDA -->
+  <section id="ventas">
+    <h2>NUESTROS PRODUCTOS</h2>
+    <div class="tienda">
+      <div class="producto">
+        <img src="https://via.placeholder.com/300x200?text=Lápiz+Semilla">
+        <h3>Lápiz Semilla</h3>
+        <p>Lápiz ecológico con cápsula de semilla listo para sembrar.</p>
+        <p><b>$5.000 COP</b></p>
+        <button onclick="agregarCarrito('Lápiz Semilla', 5000)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div id="resumenCarrito"></div>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section id="simulador">
+    <h2>SIMULADOR DE CRECIMIENTO</h2>
+    <canvas id="canvas" width="400" height="300"></canvas>
+  </section>
+
+  <!-- 🔽 NUEVAS SECCIONES 🔽 -->
+  <section id="folleto">
+    <h2>FOLLETO</h2>
+    <p>Aquí podrás ver el folleto de Natural Pencil.</p>
+    <img src="img/folleto.jpg" alt="Folleto Natural Pencil" class="imagen-grande">
+  <img src="img/folleto (2).jpg" alt="Folleto Natural Pencil" class="imagen-grande">
+  </section>
+  </section>
+
+  <section id="tarjetas">
+    <h2>TARJETAS DE PRESENTACIÓN</h2>
+    <p>Nuestras tarjetas de presentación muestran la identidad ecológica del proyecto.</p>
+    <img src="img/tarjeta de presentacion (4).jpg" alt="Tarjetas Natural Pencil" class="imagen-grande">
+    <img src="img/Tarjeta de presentacion (2).jpg" alt="Tarjetas Natural Pencil" class="imagen-grande">
+  <img src="img/tarjeta de presentacion (3).jpg" alt="Tarjetas Natural Pencil" class="imagen-grande">
+   <img src="img/Tarjeta de presentacion.jpg" alt="Tarjetas Natural Pencil" class="imagen-grande">
+  </section>
+  </section>
+  </section>
+  </section>
+
+  <section id="infografia">
+    <h2>INFOGRAFÍA</h2>
+    <p>Infografía explicativa del ciclo de vida del lápiz semilla.</p>
+    <img src="img/infografia.PNG" alt="Infografía Natural Pencil" class="imagen-grande">
+  </section>
+
+  <section id="volante">
+    <h2>VOLANTE</h2>
+    <p>Volante informativo para promocionar Natural Pencil.</p>
+    <img src="img/volante.jpg" alt="Volante Natural Pencil" class="imagen-grande">
+  </section>
+
+  <section id="catalogo">
+    <h2>CATÁLOGO</h2>
+    <p>Catálogo completo de productos de Natural Pencil.</p>
+    <img src="img/Captura1.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura2.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura3.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura4.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura5.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura6.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura7.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  <img src="img/Captura8.PNG" alt="Catálogo Natural Pencil" class="imagen-grande">
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Natural Pencil - Todos los derechos reservados</p>
+    <div class="redes">
+      <a href="#">Facebook</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+  <script>
+    let contador = 0;
+    let carrito = [];
+    function agregarCarrito(nombre, precio) {
+      contador++;
+      carrito.push({nombre, precio});
+      document.getElementById("contador").textContent = contador;
+    }
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    let height = 10;
+    function drawPlant() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#795548";
+      ctx.fillRect(0, 250, 400, 50);
+      ctx.fillStyle = "#2e7d32";
+      ctx.fillRect(195, 250 - height, 10, height);
+      if (height < 200) { height += 1; }
+    }
+    setInterval(drawPlant, 200);
+  </script>
+</body>
+</html>
